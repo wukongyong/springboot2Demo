@@ -1,6 +1,17 @@
 server:
   port: 8088
 
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        #规范开发风格为MVC的REST风格
+        enabled: true
+  data:
+    redis:
+      #redis://user:password@example.com:6379
+      url: redis://101.43.66.224:6379
+
 person:
   userName: zhangsan
   boss: false
@@ -26,10 +37,3 @@ person:
       - {name: tom}
       - {name: jerry,weight: 47}
     health: [{name: mario,weight: 47}]
-
-spring:
-  mvc:
-    hiddenmethod:
-      filter:
-        #规范开发风格为MVC的REST风格
-        enabled: true
