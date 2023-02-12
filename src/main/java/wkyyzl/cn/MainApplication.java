@@ -13,9 +13,9 @@ public class MainApplication {
 
         //2.查看容器里面的组件
         String[] names = run.getBeanDefinitionNames();
-        for(String s : names){
+        /*for(String s : names){
             System.out.println(s);
-        }
+        }*/
     }
 
 }
