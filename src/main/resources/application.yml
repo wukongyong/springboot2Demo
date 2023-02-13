@@ -11,6 +11,27 @@ spring:
     redis:
       #redis://user:password@example.com:6379
       url: redis://101.43.66.224:6379
+  datasource:
+    url: jdbc:mysql://101.43.66.224:3306/nettyTest
+    username: root
+    password: Wky20133828.
+    #默认类型为:com.zaxxer.hikari.HikariDataSource (在DataSourceConfiguration中)
+    #type: com.zaxxer.hikari.HikariDataSource
+    #type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver #com.mysql.jdbc.Driver已过时
+
+    druid:
+      #aop-patterns: com.atguigu.admin.*  #监控SpringBean
+      filters: stat,wall,slf4j     # 底层开启功能，stat（sql监控），wall（防火墙）
+      stat-view-servlet: # 配置监控页功能
+        enabled: true
+        login-username: wukongyong
+        login-password: Wky20133828.
+        resetEnable: false
+      web-stat-filter: # 监控web
+        enabled: true
+        urlPattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
 
 person:
   userName: zhangsan
