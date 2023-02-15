@@ -34,11 +34,12 @@ spring:
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
 
 #mybatis-plus的配置
-mybatis-plus:
-  global-config:
-    db-config:
-      id-type: auto
-      table-prefix: tb_
+#mybatis-plus:
+  #global-config:
+    #db-config:
+      #id-type: auto
+      #配置表前缀,由于代码自动生成配好了表名可省略
+      #table-prefix: tb_
 
 person:
   userName: zhangsan
