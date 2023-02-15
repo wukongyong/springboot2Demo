@@ -33,6 +33,13 @@ spring:
         urlPattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
 
+#mybatis-plus的配置
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: tb_
+
 person:
   userName: zhangsan
   boss: false
