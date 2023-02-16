@@ -11,7 +11,8 @@ import java.util.Collections;
 @SpringBootTest
 public class GeneratorTest {
 
-    String outputDir = "E://data//workspace//gitProject//springboot2Demo//src//main//java//";
+    String outputDir = "E:\\idea-workspace\\gitProject\\springboot2Demo\\src\\main\\java\\";
+    String xmloutputDir = "E:\\idea-workspace\\gitProject\\springboot2Demo\\src\\main\\java\\wkyyzl\\cn\\mapper\\xml";
 
     @Test
     void testGenerator() {
@@ -25,7 +26,7 @@ public class GeneratorTest {
                 .packageConfig(builder -> {
                     builder.parent("wkyyzl.cn") // 设置父包名
                             .entity("bean")
-                            .pathInfo(Collections.singletonMap(OutputFile.xml, outputDir)); // 设置mapperXml生成路径
+                            .pathInfo(Collections.singletonMap(OutputFile.xml, xmloutputDir)); // 设置mapperXml生成路径
                 })
                 .strategyConfig(builder -> {
                     builder.addInclude("tb_Device") // 设置需要生成的表名
