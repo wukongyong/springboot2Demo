@@ -6,9 +6,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import wkyyzl.cn.bean.Device;
 import wkyyzl.cn.bean.User;
 import wkyyzl.cn.mapper.UserMapper;
+import wkyyzl.cn.service.impl.DeviceServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -16,6 +19,9 @@ public class MyBatisPlusTests {
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    DeviceServiceImpl deviceService;
 
     @Test
     void getAllUsers(){
@@ -56,6 +62,17 @@ public class MyBatisPlusTests {
         for (User record : records) {
             System.out.println(record);
         }
+    }
+
+    @Test
+    void saveBatchTest(){
+        List<Device> list = new ArrayList<>();
+        for(int i = 0 ;i < 100;i++){
+            Device device = new Device();
+            device.setSn("deviceTest" + i);
+            list.add(device);
+        }
+        deviceService.saveBatch(list);
     }
 
 }
