@@ -1,12 +1,11 @@
 package wkyyzl.cn.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.MatrixVariable;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wkyyzl.cn.bean.Person;
+import wkyyzl.cn.bean.Result;
 
+import java.io.IOException;
 import java.util.*;
 
 @RestController
@@ -20,9 +19,10 @@ public class TestController {
         return "hello Spring Boot 2 !";
     }
 
-    @RequestMapping("/person")
-    public Person handle02(){
-        return person;
+    @GetMapping("/person")
+    public Result handle02() throws IOException {
+        //if(true) throw new IOException();
+        return new Result(true, person, null);
     }
 
 
