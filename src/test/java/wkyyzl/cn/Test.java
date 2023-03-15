@@ -1,24 +1,30 @@
 package wkyyzl.cn;
 
-import java.util.*;
+import wkyyzl.cn.util.Counter;
 
 public class Test {
 
     public static void main(String[] args) {
-        final ArrayList<String> list = new ArrayList<>();
-        list.add("123");
-        list.add("233");
-        System.out.println(list);
+        Counter counter = new Counter();
+        Counter level = new Counter();
+        System.out.println("level: " + level.getNum());
+        Test.loopTest(1, counter, level);
+    }
 
-        list.add("333");
-        System.out.println(list);
-
-        System.out.println(new Date().getTime());
-
-        Integer[] strArray = {1, 3};
-        ArrayList list1 = new ArrayList(Arrays.asList(strArray)) ;
-        list1.add("1");
-        System.out.println(list1);
+    public static void loopTest(int num, Counter counter, Counter level) {
+        if (num == 4) {
+            level.sub();
+            return;
+        }
+        level.add();
+        //System.out.println(counter.getNum());
+        counter.add();
+        for (int i = 1; i < 3; i++) {
+            //System.out.println("level: " + level.getNum() + " num: " + i);
+            //System.out.println("num:" + (num + 1) + "counter:" + counter.getNum() + "level:" + level.getNum());
+            System.out.println("level: " + (num + 1) + " num: " + i);
+            loopTest(num + 1, counter, level);
+        }
     }
 
 

@@ -11,8 +11,10 @@ import java.util.Collections;
 @SpringBootTest
 public class GeneratorTest {
 
-    String outputDir = "E:\\idea-workspace\\gitProject\\springboot2Demo\\src\\main\\java\\";
-    String xmloutputDir = "E:\\idea-workspace\\gitProject\\springboot2Demo\\src\\main\\java\\wkyyzl\\cn\\mapper\\xml";
+    String dir = "./src/main/";
+    String outputDir = dir + "java/";
+    //xml与mapper文件路径不同的话，需要在yml文件中配置
+    String xmloutputDir = dir + "resources/wkyyzl/cn/mapper";
 
     @Test
     void testGenerator() {

@@ -33,16 +33,16 @@ spring:
         urlPattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
 
-  #mybatis-plus的配置
-#mybatis-plus:
-  #global-config:
-    #db-config:
-      #id-type: auto
-      #配置表前缀,由于代码自动生成配好了表名可省略
-      #table-prefix: tb_
-
   elasticsearch:
     uris: 101.43.66.224:9200
+
+  #mybatis-plus的配置
+  #mybatis-plus:
+  #global-config:
+  #db-config:
+  #id-type: auto
+  #配置表前缀,由于代码自动生成配好了表名可省略
+#table-prefix: tb_
 
 person:
   userName: zhangsan
@@ -52,7 +52,7 @@ person:
   pet:
     name: tomcat
     weight: 23.4
-  interests: [篮球,游泳]
+  interests: [ 篮球,游泳 ]
   animal:
     - jerry
     - mario
@@ -61,11 +61,11 @@ person:
       first: 30
       second: 40
       third: 50
-    math: [131,140,148]
-    chinese: {first: 128,second: 136}
-  salarys: [3999,4999.98,5999.99]
+    math: [ 131,140,148 ]
+    chinese: { first: 128,second: 136 }
+  salarys: [ 3999,4999.98,5999.99 ]
   allPets:
     sick:
-      - {name: tom}
-      - {name: jerry,weight: 47}
-    health: [{name: mario,weight: 47}]
+      - { name: tom }
+      - { name: jerry,weight: 47 }
+    health: [ { name: mario,weight: 47 } ]
