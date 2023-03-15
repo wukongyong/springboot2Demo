@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
+//@Transactional  //SpringBootTest+Transactional:默认Rollback为true
 public class MyBatisPlusTests {
 
     @Autowired
