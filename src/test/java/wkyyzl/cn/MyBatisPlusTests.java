@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import wkyyzl.cn.bean.Device;
-import wkyyzl.cn.bean.User;
+import wkyyzl.cn.bean.db.User;
 import wkyyzl.cn.mapper.UserMapper;
 import wkyyzl.cn.service.impl.DeviceServiceImpl;
 
@@ -25,7 +25,7 @@ public class MyBatisPlusTests {
     DeviceServiceImpl deviceService;
 
     @Test
-    void getAllUsers(){
+    void getAllUsers() {
         List<User> users = userMapper.selectList(null);
         for (User user : users) {
             System.out.println(user);
@@ -33,22 +33,22 @@ public class MyBatisPlusTests {
     }
 
     @Test
-    void insertUser(){
+    void insertUser() {
         User user = new User();
-        user.setUserName("wky");
+        user.setUsername("wky");
         user.setAddress("address");
         user.setAge(24);
         user.setName("一二");
         user.setPassword("fdd");
-        user.setMail("fjiwo&qq.com");
+        user.setEmail("fjiwo&qq.com");
 
         userMapper.insert(user);
     }
 
     // 测试分页查询
     @Test
-    public void testSelectPage(){
-        Page<User> page = new Page<>(1,2); //查询第一页，查询1条数据
+    public void testSelectPage() {
+        Page<User> page = new Page<>(1, 2); //查询第一页，查询1条数据
 
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         //设置查询条件
@@ -66,9 +66,9 @@ public class MyBatisPlusTests {
     }
 
     @Test
-    void saveBatchTest(){
+    void saveBatchTest() {
         List<Device> list = new ArrayList<>();
-        for(int i = 0 ;i < 100;i++){
+        for (int i = 0; i < 100; i++) {
             Device device = new Device();
             device.setSn("deviceTest" + i);
             list.add(device);

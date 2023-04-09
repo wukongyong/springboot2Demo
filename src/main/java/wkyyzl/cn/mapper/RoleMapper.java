@@ -1,6 +1,6 @@
 package wkyyzl.cn.mapper;
 
-import wkyyzl.cn.bean.db.User;
+import wkyyzl.cn.bean.db.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author wukongyong
  * @since 2023-04-09
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface RoleMapper extends BaseMapper<Role> {
 
 }

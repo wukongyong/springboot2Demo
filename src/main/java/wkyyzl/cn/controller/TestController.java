@@ -6,7 +6,9 @@ import wkyyzl.cn.bean.Person;
 import wkyyzl.cn.bean.Result;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class TestController {

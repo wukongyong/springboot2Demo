@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import wkyyzl.cn.bean.User;
+import wkyyzl.cn.bean.db.User;
 import wkyyzl.cn.service.impl.DocumentServiceImpl;
 import wkyyzl.cn.service.impl.IndexServiceImpl;
 
@@ -21,7 +21,7 @@ public class ElasticsearchTests {
     DocumentServiceImpl documentService;
 
     @Test
-    void createIndex(){
+    void createIndex() {
         try {
             indexService.createIndex("user");
         } catch (IOException e) {
@@ -30,7 +30,7 @@ public class ElasticsearchTests {
     }
 
     @Test
-    void getIndex(){
+    void getIndex() {
         try {
             GetIndexResponse user = indexService.getIndexDetail("shopping");
             System.out.println(user.result().get("shopping"));
@@ -40,16 +40,16 @@ public class ElasticsearchTests {
     }
 
     @Test
-    void insertDoc(){
+    void insertDoc() {
 
         User user = new User();
         user.setName("wky");
-        user.setUserName("吴孔勇");
+        user.setUsername("吴孔勇");
         user.setPassword("1111");
         user.setAge(28);
         user.setAddress("fqfwqf");
         user.setId(1234L);
-        user.setMail("dhqjf@qq.com");
+        user.setEmail("dhqjf@qq.com");
 
         //转换成json
         ObjectMapper objectMapper = new ObjectMapper();

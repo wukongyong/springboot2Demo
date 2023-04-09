@@ -27,12 +27,12 @@ public class GeneratorTest {
                 })
                 .packageConfig(builder -> {
                     builder.parent("wkyyzl.cn") // 设置父包名
-                            .entity("bean")
+                            .entity("bean.db")
                             .pathInfo(Collections.singletonMap(OutputFile.xml, xmloutputDir)); // 设置mapperXml生成路径
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("tb_Device") // 设置需要生成的表名
-                            .addTablePrefix("tb_") // 设置过滤表前缀
+                    builder.addInclude("tbl_role") // 设置需要生成的表名
+                            .addTablePrefix("tbl_") // 设置过滤表前缀
 
                             .entityBuilder()
                             .disableSerialVersionUID()

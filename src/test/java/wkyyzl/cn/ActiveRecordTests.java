@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import wkyyzl.cn.bean.Device;
-import wkyyzl.cn.bean.User;
+import wkyyzl.cn.bean.db.User;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class ActiveRecordTests {
 
     @Test
-    void getUsers(){
+    void getUsers() {
         User user = new User();
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         //queryWrapper.gt("age", 24);
@@ -24,7 +24,7 @@ public class ActiveRecordTests {
     }
 
     @Test
-    void insertDevice(){
+    void insertDevice() {
         Device device = new Device();
         device.setSn("test1");
         device.setType(1);
