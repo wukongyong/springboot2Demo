@@ -1,11 +1,11 @@
 package wkyyzl.cn.mapper;
 
-import wkyyzl.cn.bean.db.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import wkyyzl.cn.bean.db.User;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author wukongyong

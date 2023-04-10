@@ -1,6 +1,7 @@
 package wkyyzl.cn.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import wkyyzl.cn.bean.Person;
 import wkyyzl.cn.bean.Result;
@@ -16,6 +17,7 @@ public class TestController {
     @Autowired
     Person person;
 
+    @Secured({"USER"})
     @RequestMapping("/hello")
     public String handle01() {
         return "hello Spring Boot 2 !";

@@ -36,12 +36,12 @@ spring:
   elasticsearch:
     uris: 101.43.66.224:9200
 
-  #mybatis-plus的配置
-  #mybatis-plus:
-  #global-config:
-  #db-config:
-  #id-type: auto
-  #配置表前缀,由于代码自动生成配好了表名可省略
+#mybatis-plus的配置
+#mybatis-plus:
+#global-config:
+#db-config:
+#id-type: auto
+#配置表前缀,由于代码自动生成配好了表名可省略
 #table-prefix: tb_
 
 person:

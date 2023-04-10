@@ -31,7 +31,7 @@ public class GeneratorTest {
                             .pathInfo(Collections.singletonMap(OutputFile.xml, xmloutputDir)); // 设置mapperXml生成路径
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("tbl_role") // 设置需要生成的表名
+                    builder.addInclude("tbl_user_role") // 设置需要生成的表名
                             .addTablePrefix("tbl_") // 设置过滤表前缀
 
                             .entityBuilder()

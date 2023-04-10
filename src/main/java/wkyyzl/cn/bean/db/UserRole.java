@@ -4,39 +4,30 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-
 import java.io.Serializable;
+import lombok.Data;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author wukongyong
- * @since 2023-04-09
+ * @since 2023-04-10
  */
 @Data
-@TableName("tbl_role")
-public class Role extends Model<Role> implements GrantedAuthority {
+@TableName("tbl_user_role")
+public class UserRole extends Model<UserRole> {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String roleName;
+    private Integer userId;
 
-    private String roleDesc;
+    private Integer roleId;
 
     @Override
     public Serializable pkVal() {
         return this.id;
-    }
-
-    @Override
-    @JsonIgnore
-    public String getAuthority() {
-        return roleName;
     }
 }
