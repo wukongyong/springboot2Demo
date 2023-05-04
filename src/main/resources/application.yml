@@ -36,6 +36,12 @@ spring:
   elasticsearch:
     uris: 101.43.66.224:9200
 
+  kafka:
+    bootstrap-servers: 101.43.78.243:9092
+    consumer:
+      group-id: test
+
+
 #mybatis-plus的配置
 #mybatis-plus:
 #global-config:
