@@ -12,4 +12,9 @@ public class KafkaMessageListener {
         System.out.println("已完成短信发送业务(kafka), id: " + record.value());
     }
 
+    @KafkaListener(topics = "gjzx_alarm")
+    public void onMyTestMessage2(ConsumerRecord<String, String> record) {
+        System.out.println("gjzx_alarm(kafka), id: " + record.value());
+    }
+
 }
