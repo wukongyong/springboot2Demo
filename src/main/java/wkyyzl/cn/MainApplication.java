@@ -16,6 +16,9 @@ public class MainApplication {
         /*for(String s : names){
             System.out.println(s);
         }*/
+
+        //启动netty服务器
+        //new NettySer
     }
 
 }
