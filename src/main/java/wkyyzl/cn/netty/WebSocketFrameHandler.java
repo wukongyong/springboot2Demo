@@ -1,5 +1,6 @@
 package wkyyzl.cn.netty;
 
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.*;
@@ -7,6 +8,30 @@ import io.netty.handler.codec.http.websocketx.*;
 public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
 
     public WebSocketFrameHandler() {
+    }
+
+    @Override
+    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+        if (evt instanceof WebSocketServerProtocolHandler.HandshakeComplete) {
+            WebSocketServerProtocolHandler.HandshakeComplete event = (WebSocketServerProtocolHandler.HandshakeComplete) evt;
+            System.out.println(event.requestUri());
+            System.out.println(event.requestHeaders());
+            if (event.requestUri().contains("?")) {
+                if (ctx.channel() != null) {
+                    ctx.channel().close();
+                }
+            }
+        } else {
+            super.userEventTriggered(ctx, evt);
+        }
+    }
+
+    @Override
+    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
+        super.channelUnregistered(ctx);
+
+        Channel channel = ctx.channel();
+        System.out.println("客户端断开：" + channel);
     }
 
     @Override

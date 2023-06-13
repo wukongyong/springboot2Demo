@@ -7,6 +7,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolConfig;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
@@ -35,21 +36,6 @@ public class NettyWebSocketServer implements Runnable {
                             ChannelUtils.addChannelSession(ch, session);*/
 
                             ChannelPipeline pipeline = ch.pipeline();
-                            /*pipeline.addLast(new ChannelInboundHandlerAdapter() {
-
-                                @Override
-                                public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
-                                    super.channelUnregistered(ctx);
-
-                                    Channel channel = ctx.channel();
-                                    //System.out.println("客户端断开：" + channel);
-                                    NettySession session = (NettySession) ChannelUtils.getSessionBy(channel);
-                                    onSessionClosed(session);
-
-                                    sessions.remove(channel);
-                                }
-
-                            });*/
 
                             //pipeline.addLast("idleStateHandler", new IdleStateHandler(15, 5, 0));
 
@@ -59,13 +45,14 @@ public class NettyWebSocketServer implements Runnable {
                             pipeline.addLast("chunkedWriteHandler", new ChunkedWriteHandler());
                             pipeline.addLast("httpObjectAggregator", new HttpObjectAggregator(314572800));
 
-                            //before Handshake
-
-
                             pipeline.addLast("webSocketServerCompressionHandler", new WebSocketServerCompressionHandler());
-                            pipeline.addLast("webSocketServerProtocolHandler",
-                                    new WebSocketServerProtocolHandler("/socket", null, true, 1048576 * 2, false, false, true));
-                            pipeline.addLast("beforeHandshakeHandler", new BeforeWebSocketHandshakeHandler());
+                            //处理websocket的编解码器
+                            WebSocketServerProtocolConfig wsConfig = WebSocketServerProtocolConfig.newBuilder()
+                                    .websocketPath("/socket")
+                                    .maxFramePayloadLength(Integer.MAX_VALUE)
+                                    .checkStartsWith(true).build();
+                            pipeline.addLast("webSocketServerProtocolHandler", new WebSocketServerProtocolHandler(wsConfig));
+
                             pipeline.addLast("webSocketFrameHandler", new WebSocketFrameHandler());
 
                             // timeout和心跳，先注释掉，后期再看是否需要打开
