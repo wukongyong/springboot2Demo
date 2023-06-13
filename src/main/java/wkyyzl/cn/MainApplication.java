@@ -3,6 +3,7 @@ package wkyyzl.cn;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import wkyyzl.cn.netty.NettyWebSocketServer;
 
 @SpringBootApplication
 public class MainApplication {
@@ -18,7 +19,10 @@ public class MainApplication {
         }*/
 
         //启动netty服务器
-        //new NettySer
+        NettyWebSocketServer nettyWebSocketServer = new NettyWebSocketServer(4020);
+        nettyWebSocketServer.run();
+
+        System.out.println("---------------");
     }
 
 }
