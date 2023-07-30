@@ -14,7 +14,7 @@ public class KafkaMessageServiceImpl implements MessageService {
     @Override
     public void sendMessage(String id) {
         System.out.println("待发送的消息已纳入处理队列(kafka), id: " + id);
-        kafkaTemplate.send("myTestTopic", id);
+        kafkaTemplate.send("kafka_flink_test", id);
     }
 
     @Override
